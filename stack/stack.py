@@ -12,47 +12,46 @@ return elements in Last In First Out order.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
 """
+class Stack:
+    def __init__(self):
+        self.size = 0
+        self.storage = []
+
+    def __len__(self):
+        return self.size
+
+    def push(self, value):
+        self.storage.append(value) 
+        self.size += 1
+
+    def pop(self):
+        if self.size > 0: 
+            self.size -= 1
+            value = self.storage.pop()
+            return value
+        else: 
+            return None
+
 # class Stack:
 #     def __init__(self):
-#         self.size = 0
-#         self.storage = []
+#       self.size = 0
+#       self.storage = LinkedList()
+     
 
 #     def __len__(self):
 #         return self.size
 
 #     def push(self, value):
-#         self.storage.append(value) 
+#         self.storage.add_to_tail(value)  # == LinkedList().add_to_tail
 #         self.size += 1
 
-#     def pop(self, value ):
+#     def pop(self):
 #         if self.size > 0: 
 #             self.size -= 1
-#             self.storage.pop(value)
+#             value = self.storage.remove_tail()
 #             return value
 #         else: 
-#             return value
-
-class Stack(SLLStack):
-    def __init__(self, element = None, _next = None, head = None, size = None ):
-        super().__init__(element, _next,head,size)
-
-        self.storage = []
-
-    # def __len__(self):
-    #     return self.size
-
-    # def push(self, value):
-    #     self.storage.append(value) 
-    #     self.size += 1
-
-    # def pop(self, value ):
-    #     if self.size > 0: 
-    #         self.size -= 1
-    #         self.storage.pop(value)
-    #         return value
-    #     else: 
-    #         return value
+#             return None
 
             
 
-print(help(Stack))
